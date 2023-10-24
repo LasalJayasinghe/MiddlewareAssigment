@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Home Page</h1>
+    <p>Click the button to open a new tab:</p>
+    <button id="openNewTab">Open New Tab</button>
+    <script>
+        document.getElementById('openNewTab').addEventListener('click', function() {
+            // Open a new tab with the specified URL
+            window.open('http://127.0.0.1:5001/', '_blank');
+        });
+    </script>
+</body>
+</html>
