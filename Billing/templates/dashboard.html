@@ -2,11 +2,36 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Dashboard</h1>
     <a href="/bills/current/USER_ID"><button>View Current Bills</button></a>
     <a href="/bills/past/USER_ID"><button>View Past Bills</button></a>
-
 </body>
 </html>

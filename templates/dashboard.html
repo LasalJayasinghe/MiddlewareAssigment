@@ -2,10 +2,51 @@
 <html>
 <head>
     <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        a.button {
+            display: block;  /* To ensure the margin applies properly */
+            margin-top: 10px; /* Add a top margin of 10 pixels */
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Dashboard</h1>
-    <p>Welcome to the dashboard.</p>
-    <a href="/run_billing"><button>Run Billing</button></a>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <p>Welcome to the dashboard.</p>
+        <a class="button" href="/run_billing">Billing History</a>
+        <a class="button" href="">Telcho Services</a>
+        <a class="button" href="">Online Bill Payment</a>
+        <a class="button" href="">Notifications</a>
+        <a class="button" href="">Customer Care</a>
+
+    </div>
 </body>
 </html>
