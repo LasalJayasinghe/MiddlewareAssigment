@@ -12,11 +12,21 @@ def dashboard():
     # Dashboard logic
     return render_template('dashboard.html')
 
+# Billing Process
 @app.route('/run_billing')
 def run_billing():
     try:
         subprocess.Popen(['python', 'Billing/billing_service.py'])
         return render_template('home.html')
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+    
+# Chat Service
+@app.route('/chat')
+def chat():
+    try:
+        subprocess.Popen(['python', 'Chat/main.py'])
+        return render_template('chat.html')
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
