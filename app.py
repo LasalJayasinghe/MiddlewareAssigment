@@ -76,8 +76,6 @@ def create_checkout_session():
 
 
 #activate and deactivate
-
-
 # Route for activating a service
 @app.route('/activate_service', methods=['GET', 'POST'])
 def activate_service_view():
