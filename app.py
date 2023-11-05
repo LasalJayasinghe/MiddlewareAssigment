@@ -21,6 +21,22 @@ def run_billing():
     except Exception as e:
         return f"An error occurred: {str(e)}"
     
+# Alert Service
+@app.route('/alert')
+def chat():
+    try:
+        subprocess.Popen(['python', 'alerts/alert.py'])
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+    
+# Notification Service
+@app.route('/notification')
+def chat():
+    try:
+        subprocess.Popen(['python', 'alerts/pushNotification.py'])
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
+    
 # Chat Service
 @app.route('/chat')
 def chat():
