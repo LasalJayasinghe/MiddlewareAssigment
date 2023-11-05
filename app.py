@@ -29,17 +29,20 @@ def run_billing():
     
 # Alert Service
 @app.route('/alert')
-def chat():
+def alert():
     try:
         subprocess.Popen(['python', 'alerts/alert.py'])
+        return render_template('notification.html')
     except Exception as e:
         return f"An error occurred: {str(e)}"
     
 # Notification Service
 @app.route('/notification')
-def chat():
+def notification():
     try:
         subprocess.Popen(['python', 'alerts/pushNotification.py'])
+        return render_template('notification.html')
+
     except Exception as e:
         return f"An error occurred: {str(e)}"
     
@@ -53,7 +56,7 @@ def chat():
         return f"An error occurred: {str(e)}"
     
 # Payment Service
-@app.route('/create-checkout-session', metthods=['POST'])
+@app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
         
@@ -72,8 +75,6 @@ def create_checkout_session():
         return str(e)
     
     return redirect(checkout_session.url, code=303)
-        
-
 
 #activate and deactivate
 # Route for activating a service
