@@ -1,3 +1,4 @@
+from urllib import request
 from flask import Flask, render_template, redirect
 import subprocess
 import stripe
@@ -70,6 +71,29 @@ def create_checkout_session():
     
     return redirect(checkout_session.url, code=303)
         
+
+
+#activate and deactivate
+
+
+# Route for activating a service
+@app.route('/activate_service', methods=['GET', 'POST'])
+def activate_service_view():
+    if request.method == 'POST':
+        service_name = request.form['service_name']
+        result = activate_service(service_name)
+        return f"Service Activation: {result}"
+    return render_template('/services/activate_service.html')
+
+# Route for deactivating a service
+@app.route('/deactivate_service', methods=['GET', 'POST'])
+def deactivate_service_view():
+    if request.method == 'POST':
+        service_name = request.form['service_name']
+        result = deactivate_service(service_name)
+        return f"Service Deactivation: {result}"
+    return render_template('/services/deactivate_service.html')
+
 
 
 if __name__ == '__main__':
