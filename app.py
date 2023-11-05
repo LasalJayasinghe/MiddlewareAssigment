@@ -1,7 +1,10 @@
 from flask import Flask, render_template, redirect
 import subprocess
+import stripe
 
 app = Flask(__name__)
+
+stripe.api_key = "sk_test_51O96wrJ9SyMGPZuPhAUPDW2YNW4KUfTrYVqmefzXxcc5MljfSW1VTdqeOBOK5grpUOkEbwT4ngvry3BgT9JY0hVf00ag4ArdSi"
 
 @app.route('/')
 def home():
@@ -45,6 +48,29 @@ def chat():
         return render_template('chat.html')
     except Exception as e:
         return f"An error occurred: {str(e)}"
+    
+# Payment Service
+@app.route('/create-checkout-session', metthods=['POST'])
+def create_checkout_session():
+    try:
+        
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[
+                {
+                    'price': 'price_1O96zSJ9SyMGPZuPldScoY6Z',
+                    'quantity': 1,
+                },
+            ],
+            mode='subscription',
+            success_url='/Payment/success.html',
+            cancel_url='/Payment/cancel.html',
+        )
+    except Exception as e:
+        return str(e)
+    
+    return redirect(checkout_session.url, code=303)
+        
+
 
 if __name__ == '__main__':
     app.run()
